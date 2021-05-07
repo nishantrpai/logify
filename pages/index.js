@@ -3,7 +3,7 @@ import Head from "next/head";
 const EventLog = () => {
   return (
     <div className="flex flex-col flex-wrap items-center justify-around w-full mt-6">
-      <div className="p-6 mt-6 text-left border w-full rounded-xl">
+      <div className="p-6 mt-6 text-left w-full rounded-xl bg-blue-100">
         <h3 className="text-2xl font-bold">Event Log</h3>
         <input
           type="text"
@@ -11,7 +11,7 @@ const EventLog = () => {
           placeholder="Event"
         />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white 
+          className="bg-blue-300 hover:bg-blue-700 text-white 
             font-bold py-2 px-4 rounded text-xl mt-4"
         >
           Copy
