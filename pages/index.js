@@ -117,8 +117,8 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-start flex-1 px-10 py-20 text-center">
-        <h1 className="text-6xl font-bold">Logger</h1>
-        <p className="mt-3 text-xl text-gray-400">A tool for writing events, inputs and outputs while experimenting.</p>
+        <h1 className="text-6xl mb-4 font-bold">Logger</h1>
+        <p className="mt-6 flex text-gray-400">✍️ Write events, inputs, and outputs to your logfile or while experimenting.</p>
         <EventLog />
         <IO />
       </main>

@@ -8,8 +8,12 @@ export const copyText = (text) => {
 }
 
 export const getDataEntry = (type, text) => {
+    let value = text.split(',')
+    if (value[1] == "") {
+        return value[0];
+    }
+
     if (type == 'Markdown') {
-        let value = text.split(',')
         return value.join('\t\t\t| ')
     }
     if (type == 'CSV') {
