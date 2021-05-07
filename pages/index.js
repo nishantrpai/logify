@@ -21,14 +21,14 @@ const EventLog = () => {
         <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br /> {`${timeNow(date)}: ${event}`}</div>
         <input
           type="text"
-          class="px-1 py-1 max-w-sm border mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          class="px-2 py-1 max-w-sm border mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter Date"
           value={timeNow(date)}
           onChange={(e) => { setDate(e.target.value) }}
         />
         <input
           type="text"
-          class="px-4 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter Event"
           onChange={(e) => { setEvent(e.target.value) }}
         />
