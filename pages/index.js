@@ -1,8 +1,7 @@
 import Head from "next/head";
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import { timeNow } from "../libs/time";
-import { copyText } from "../libs/util";
+import { copyText, getDataEntry } from "../libs/util";
 
 const EventLog = () => {
   const [event, setEvent] = useState('');
@@ -16,7 +15,7 @@ const EventLog = () => {
 
   return (
     <div className="flex flex-col flex-wrap max-w-2xl items-center justify-around w-full mt-6">
-      <div className="p-6 mt-6 text-left w-full rounded-xl border">
+      <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
         <h3 className="text-2xl font-bold">Event Log</h3>
         <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br /> {`${timeNow(date)}: ${event}`}</div>
         <input
@@ -49,12 +48,21 @@ const IO = () => {
   const [iolog, setIOLog] = useState('');
   const [dataType, setDataType] = useState('Markdown');
   const [isVisible, setVisibility] = useState(false);
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    setInterval(() => {
+      setDate(new Date())
+    }, 1000);
+  }, [])
+
 
   return (
     <div className="flex flex-col flex-wrap max-w-2xl items-center justify-around w-full mt-6">
-      <div className="p-6 mt-6 text-left w-full rounded-xl border">
+      <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
         <h3 className="text-2xl font-bold">I/O Log</h3>
-        <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br /></div>
+        <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br />
+          {`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`}</div>
         <div className="rounded-md shadow-sm">
           <div className="relative inline-block text-left w-1/3">
 
@@ -65,10 +73,13 @@ const IO = () => {
               onClick={() => { setVisibility(!isVisible) }}
             >
               <span className="w-full text-left">{dataType}</span>
-              <svg className="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>
+              <svg className="w-5 h-5 ml-2 -mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z">
+                </path>
+              </svg>
             </button>
 
-            <div className={`${isVisible ? 'opacity-1' : 'opacity-0'} absolute bg-white border visible w-full`}>
+            <div className={`${isVisible ? 'block' : 'hidden'} absolute bg-white border visible w-full`}>
               <div className="py-1">
                 <span className="text-gray-700 flex w-full px-4 py-2 text-sm leading-5 text-left" onClick={() => { setDataType('Markdown'); setVisibility(false) }}>Markdown</span>
                 <span className="text-gray-700 flex w-full px-4 py-2 text-sm leading-5 text-left" onClick={() => { setDataType('CSV'); setVisibility(false) }}>CSV</span>
@@ -81,13 +92,13 @@ const IO = () => {
         <input
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
-          placeholder="Enter Event"
+          placeholder="Enter , separated values"
           onChange={(e) => { setIOLog(e.target.value) }}
         />
         <button
           className={`${iolog.length == 0 ? 'bg-blue-300' : 'bg-blue-500'} w-full text-white 
             font-bold py-2 px-4 rounded text-xl mt-4`}
-          onClick={(e) => { copyText(`${timeNow(date)}: ${event}`) }}
+          onClick={(e) => { copyText(`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`) }}
         >
           Copy
         </button>
@@ -99,15 +110,15 @@ const IO = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen py-2">
+    <div className="flex bg-gray-100 flex-col items-center justify-start min-h-screen py-2">
       <Head>
         <title>Experiment Tools</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex flex-col items-center justify-start flex-1 px-10 py-20 text-center">
-        <h1 className="text-6xl font-bold">Experiment tools</h1>
-        <p className="mt-3 text-xl text-gray-400">🛠️ Tools to help experimenting</p>
+        <h1 className="text-6xl font-bold">Logger</h1>
+        <p className="mt-3 text-xl text-gray-400">A tool for writing events, inputs and outputs while experimenting.</p>
         <EventLog />
         <IO />
       </main>

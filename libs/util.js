@@ -6,3 +6,13 @@ export const copyText = (text) => {
         console.error("Unable to write to clipboard. :-(");
     });
 }
+
+export const getDataEntry = (type, text) => {
+    if (type == 'Markdown') {
+        let value = text.split(',')
+        return value.join('\t\t\t| ')
+    }
+    if (type == 'CSV') {
+        return text;
+    }
+}
