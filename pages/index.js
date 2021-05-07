@@ -46,16 +46,16 @@ const EventLog = () => {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-start min-h-screen py-2">
       <Head>
         <title>Experiment Tools</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center flex-1 px-10 text-center">
+      <main className="flex flex-col items-center justify-start flex-1 px-10 py-20 text-center">
         <h1 className="text-6xl font-bold">Experiment tools</h1>
 
-        <p className="mt-3 text-2xl">Get started by editing the input box</p>
+        <p className="mt-3 text-xl text-gray-400">🛠️ Tools to help experimenting</p>
         <EventLog />
       </main>
     </div>
