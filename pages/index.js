@@ -14,17 +14,12 @@ const EventLog = () => {
   }, [])
 
   return (
-    <div className="flex flex-col flex-wrap max-w-2xl items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
       <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
         <h3 className="text-2xl font-bold">Event Log</h3>
-        <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br /> {`${timeNow(date)}: ${event}`}</div>
-        <input
-          type="text"
-          class="px-2 py-1 max-w-sm border mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
-          placeholder="Enter Date"
-          value={timeNow(date)}
-          onChange={(e) => { setDate(e.target.value) }}
-        />
+        <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
+        <span className="mt-1 max-w-sm text-gray-400 text-sm">{`${timeNow(date)}:`}&nbsp;</span>
+        <span className="mt-1 max-w-sm text-gray-400 text-sm"> {`${event}`}</span>
         <input
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
@@ -60,11 +55,11 @@ const IO = () => {
 
 
   return (
-    <div className="flex flex-col flex-wrap max-w-2xl items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
       <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
         <h3 className="text-2xl font-bold">I/O Log</h3>
-        <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br />
-          {`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`}</div>
+        <p className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</p>
+         <p className="mt-1 mb-2 max-w-md text-gray-400 text-sm flex">{`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`}</p> 
         <div className="rounded-md shadow-sm">
           <div className="relative inline-block text-left w-1/3">
 
