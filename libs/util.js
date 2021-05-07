@@ -14,7 +14,7 @@ export const getDataEntry = (type, text) => {
     }
 
     if (type == 'Markdown') {
-        return value.join('\t\t\t| ')
+        return `| ${value.join('\t\t\t| ')}`
     }
     if (type == 'CSV') {
         return text;
