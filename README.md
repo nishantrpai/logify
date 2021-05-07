@@ -10,4 +10,4 @@ This [website](https://experiment-tools.vercel.app) is for event logs for e.g.,
 
 ## How to use
 
-Go to the website -> Write the message -> Press copy -> Paste the event log in your experiment
+Go to the website -> Write the message -> Press copy -> Paste the event log in your experiment/logfile
