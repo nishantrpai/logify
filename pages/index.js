@@ -35,7 +35,6 @@ const EventLog = () => {
           className={`${event.length == 0 ? 'bg-blue-300' : 'bg-blue-500'} w-full text-white 
             font-bold py-2 px-4 rounded text-xl mt-4`}
           onClick={(e) => {
-            toast().default('Title', 'Message!').show();
             copyText(`${timeNow(date)}: ${event}`);
           }}
         >
@@ -101,7 +100,9 @@ const IO = () => {
         <button
           className={`${iolog.length == 0 ? 'bg-blue-300' : 'bg-blue-500'} w-full text-white 
             font-bold py-2 px-4 rounded text-xl mt-4`}
-          onClick={(e) => { copyText(`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`) }}
+          onClick={(e) => { 
+            copyText(`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`) 
+          }}
         >
           Copy
         </button>
@@ -119,7 +120,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-col items-center justify-start flex-1 px-10 py-20 text-center">
+      <main className="flex flex-col items-center max-w-2xl justify-start flex-1 px-10 py-20 text-center">
         <h1 className="text-6xl mb-4 font-bold">Logify</h1>
         <p className="mt-6 flex text-gray-400">✍️ Write events, inputs, and outputs to your logfile or while experimenting.</p>
         <EventLog />
