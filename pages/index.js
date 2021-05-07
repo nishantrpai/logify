@@ -112,7 +112,7 @@ export default function Home() {
   return (
     <div className="flex bg-gray-100 flex-col items-center justify-start min-h-screen py-2">
       <Head>
-        <title>Experiment Tools</title>
+        <title>✍️ Logger</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

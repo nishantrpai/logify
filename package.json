@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "latest",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "tailwind-toast": "^1.0.9"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.4",
