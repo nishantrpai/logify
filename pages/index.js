@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react/cjs/react.development";
 import { timeNow } from "../libs/time";
+import { copyText } from "../libs/util";
 
 const EventLog = () => {
   const [event, setEvent] = useState('');
@@ -14,13 +15,13 @@ const EventLog = () => {
   }, [])
 
   return (
-    <div className="flex flex-col flex-wrap items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-2xl items-center justify-around w-full mt-6">
       <div className="p-6 mt-6 text-left w-full rounded-xl border">
         <h3 className="text-2xl font-bold">Event Log</h3>
-        <span className="mt-2 mb-2 text-gray-400	 flex">Preview:<br />{`${timeNow(date)}: ${event}`}</span>
+        <div className="mt-2 mb-2 text-gray-400 flex">Preview:<br /> {`${timeNow(date)}: ${event}`}</div>
         <input
           type="text"
-          class="px-4 py-1 leading-5 border mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          class="px-1 py-1 max-w-sm border mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter Date"
           value={timeNow(date)}
           onChange={(e) => { setDate(e.target.value) }}
@@ -32,8 +33,9 @@ const EventLog = () => {
           onChange={(e) => { setEvent(e.target.value) }}
         />
         <button
-          className="bg-blue-300 hover:bg-blue-700 text-white 
-            font-bold py-2 px-4 rounded text-xl mt-4"
+          className={`${event.length == 0 ? 'bg-blue-300' : 'bg-blue-500'} w-full text-white 
+            font-bold py-2 px-4 rounded text-xl mt-4`}
+          onClick={(e) => { copyText(`${timeNow(date)}: ${event}`) }}
         >
           Copy
         </button>
