@@ -19,7 +19,7 @@ const EventLog = () => {
         <h3 className="text-2xl font-bold">Event Log</h3>
         <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
         <span className="mt-1 max-w-sm text-gray-400 text-sm">{`${timeNow(date)}:`}&nbsp;</span>
-        <span className="mt-1 max-w-sm text-gray-400 text-sm"> {`${event}`}</span>
+        <span className="mt-1 max-w-sm text-gray-400 text-sm"> {`${event  || "*Your event*"}`}</span>
         <input
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
