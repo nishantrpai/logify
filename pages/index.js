@@ -34,7 +34,10 @@ const EventLog = () => {
         <button
           className={`${event.length == 0 ? 'bg-blue-300' : 'bg-blue-500'} w-full text-white 
             font-bold py-2 px-4 rounded text-xl mt-4`}
-          onClick={(e) => { copyText(`${timeNow(date)}: ${event}`) }}
+          onClick={(e) => {
+            toast().default('Title', 'Message!').show();
+            copyText(`${timeNow(date)}: ${event}`);
+          }}
         >
           Copy
         </button>
@@ -112,12 +115,12 @@ export default function Home() {
   return (
     <div className="flex bg-gray-100 flex-col items-center justify-start min-h-screen py-2">
       <Head>
-        <title>✍️ Logger</title>
+        <title>✍️ Logify</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="flex flex-col items-center justify-start flex-1 px-10 py-20 text-center">
-        <h1 className="text-6xl mb-4 font-bold">Logger</h1>
+        <h1 className="text-6xl mb-4 font-bold">Logify</h1>
         <p className="mt-6 flex text-gray-400">✍️ Write events, inputs, and outputs to your logfile or while experimenting.</p>
         <EventLog />
         <IO />
