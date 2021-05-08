@@ -50,6 +50,7 @@ const EventLog = () => {
         />
         <button
           className={`
+          ${isCopied ? "bg-green-700" : ""}
           ${event.length == 0 ? "bg-blue-300" : "bg-blue-500"}
           w-full text-white 
           font-bold py-2 px-4 rounded text-xl mt-4`}
