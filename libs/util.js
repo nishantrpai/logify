@@ -1,8 +1,10 @@
-export const copyText = (text) => {
+export const copyText = (text,cb) => {
     navigator.clipboard.writeText(text).then(function () {
         console.log("Copied to clipboard successfully!");
+        cb(true);
     }, function () {
         console.error("Unable to write to clipboard. :-(");
+        cb(false);
     });
 }
 
