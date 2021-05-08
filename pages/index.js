@@ -31,7 +31,7 @@ const EventLog = () => {
 
   return (
     <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
-      <div className={`p-6 border border-gray-50 bg-white mt-6 text-left w-full rounded-xl transition delay-700 ease-in ${isFocused ? "shadow shadow-xl" : ""}`}>
+      <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isFocused ? "shadow shadow-xl border-gray-50" : "border-gray-200"}`}>
         <h3 className="text-2xl font-bold">Event Log</h3>
         <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
         <span className="mt-1 max-w-sm text-gray-400 text-sm">
@@ -54,7 +54,7 @@ const EventLog = () => {
         <button
           className={`${event.length == 0 ? "bg-blue-300" : "bg-blue-500"}
           w-full text-white border-none outline-none focus:outline-none
-          font-bold py-2 px-4 rounded  mt-4 transition delay-500 ease-in`}
+          font-bold py-2 px-4 rounded  mt-4 transition delay-100 ease-in`}
           onClick={(e) => {
             copyClick();
           }}
@@ -100,7 +100,7 @@ const IO = () => {
 
   return (
     <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
-      <div className={`p-6 border border-gray-50 bg-white mt-6 text-left w-full rounded-xl transition delay-700 ease-in ${isFocused ? "shadow shadow-xl" : ""}`}>
+      <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isFocused ? "shadow shadow-xl border-gray-100" : "border-gray-200"}`}>
         <h3 className="text-2xl font-bold">I/O Log</h3>
         <p className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</p>
         <p className="mt-1 mb-2 max-w-md text-gray-400 text-sm flex">{`${getDataEntry(
@@ -157,7 +157,7 @@ const IO = () => {
 
         <input
           type="text"
-          class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
+          class="px-2 py-3 leading-5 border w-full mt-4  rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter ',' separated input, output values"
           onFocus={() => { setIsFocused(true) }}
           onBlur={() => { setIsFocused(false) }}
@@ -167,7 +167,7 @@ const IO = () => {
         />
         <button
           className={`${iolog.length == 0 ? "bg-blue-300" : "bg-blue-500"} w-full text-white 
-            font-bold py-2 px-4 rounded mt-4 outline-none focus:outline-none`}
+            font-bold py-2 px-4 rounded mt-4  outline-none focus:outline-none transition delay-100 ease-in`}
           onClick={(e) => {
             copyClick()
           }}
