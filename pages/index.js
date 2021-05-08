@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { Transition } from '@headlessui/react'
 import { timeNow } from "../libs/time";
 import { copyText, getDataEntry } from "../libs/util";
+import { Notification } from "../components/notification";
 
 const EventLog = () => {
   const [event, setEvent] = useState('');
@@ -108,12 +110,32 @@ const IO = () => {
 
 
 export default function Home() {
+  const [alert, setalert] = useState('success')
+
   return (
     <div className="flex bg-gray-100 flex-col items-center justify-start min-h-screen py-2">
       <Head>
         <title>✍️ Logify</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Notification section */}
+      <Transition
+          show={alert !== ''}
+          enter="transition-opacity duration-75"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Notification
+            alert={alert}
+            setalert={setalert}
+          />
+
+        </Transition>
+
 
       <main className="flex flex-col items-center max-w-2xl justify-start flex-1 px-10 py-20 text-center">
         <h1 className="text-6xl mb-4 font-bold">Logify</h1>
