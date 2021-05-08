@@ -178,9 +178,9 @@ export default function Home() {
   const [alert, setalert] = useState("success");
 
   return (
-    <div className="flex bg-gray-100 flex-col items-center justify-start min-h-screen py-2">
+    <div className="flex bg-white flex-col items-center justify-start min-h-screen py-2">
       <Head>
-        <title>✍️ Logify</title>
+        <title>Logify - Want to timestamp key events?</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
