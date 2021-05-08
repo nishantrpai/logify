@@ -155,7 +155,7 @@ const IO = () => {
         <input
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
-          placeholder="Enter , separated values"
+          placeholder="Enter ',' separated input, output values"
           onChange={(e) => {
             setIOLog(e.target.value);
           }}
@@ -187,8 +187,7 @@ export default function Home() {
       <main className="flex flex-col items-center max-w-2xl justify-start flex-1 px-10 py-20 text-center">
         <h1 className="text-6xl mb-4 font-bold">Logify</h1>
         <p className="mt-6 flex text-gray-400">
-          ✍️ Write events, inputs, and outputs to your logfile or while
-          experimenting.
+          ✍️ Record events, inputs, and outputs in your logfile
         </p>
         <EventLog />
         <IO />
