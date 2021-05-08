@@ -7,6 +7,7 @@ const EventLog = () => {
   const [event, setEvent] = useState("");
   const [date, setDate] = useState(new Date());
   const [isCopied, setCopyStatus] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     setInterval(() => {
@@ -30,7 +31,7 @@ const EventLog = () => {
 
   return (
     <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
-      <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
+      <div className={`p-6 border border-gray-50 bg-white mt-6 text-left w-full rounded-xl transition delay-700 ease-in ${isFocused ? "shadow shadow-xl" : ""}`}>
         <h3 className="text-2xl font-bold">Event Log</h3>
         <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
         <span className="mt-1 max-w-sm text-gray-400 text-sm">
@@ -44,14 +45,16 @@ const EventLog = () => {
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter Event"
+          onFocus={() => { setIsFocused(true) }}
+          onBlur={() => { setIsFocused(false) }}
           onChange={(e) => {
             setEvent(e.target.value);
           }}
         />
         <button
           className={`${event.length == 0 ? "bg-blue-300" : "bg-blue-500"}
-          w-full text-white 
-          font-bold py-2 px-4 rounded text-xl mt-4`}
+          w-full text-white border-none outline-none focus:outline-none
+          font-bold py-2 px-4 rounded  mt-4 transition delay-500 ease-in`}
           onClick={(e) => {
             copyClick();
           }}
@@ -69,6 +72,7 @@ const IO = () => {
   const [isVisible, setVisibility] = useState(false);
   const [date, setDate] = useState(new Date());
   const [isCopied, setCopyStatus] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     setInterval(() => {
@@ -96,7 +100,7 @@ const IO = () => {
 
   return (
     <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
-      <div className="p-6 bg-white mt-6 text-left w-full rounded-xl shadow shadow-xl">
+      <div className={`p-6 border border-gray-50 bg-white mt-6 text-left w-full rounded-xl transition delay-700 ease-in ${isFocused ? "shadow shadow-xl" : ""}`}>
         <h3 className="text-2xl font-bold">I/O Log</h3>
         <p className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</p>
         <p className="mt-1 mb-2 max-w-md text-gray-400 text-sm flex">{`${getDataEntry(
@@ -124,9 +128,8 @@ const IO = () => {
             </button>
 
             <div
-              className={`${
-                isVisible ? "block" : "hidden"
-              } absolute bg-white border visible w-full`}
+              className={`${isVisible ? "block" : "hidden"
+                } absolute bg-white border visible w-full`}
             >
               <div className="py-1">
                 <span
@@ -156,13 +159,15 @@ const IO = () => {
           type="text"
           class="px-2 py-3 leading-5 border w-full mt-4 rounded-md focus:outline-none focus:ring focus:border-blue-400"
           placeholder="Enter ',' separated input, output values"
+          onFocus={() => { setIsFocused(true) }}
+          onBlur={() => { setIsFocused(false) }}
           onChange={(e) => {
             setIOLog(e.target.value);
           }}
         />
         <button
           className={`${iolog.length == 0 ? "bg-blue-300" : "bg-blue-500"} w-full text-white 
-            font-bold py-2 px-4 rounded text-xl mt-4`}
+            font-bold py-2 px-4 rounded mt-4 outline-none focus:outline-none`}
           onClick={(e) => {
             copyClick()
           }}
@@ -186,7 +191,7 @@ export default function Home() {
 
       <main className="flex flex-col items-center max-w-2xl justify-start flex-1 px-10 py-20 text-center">
         <h1 className="text-6xl mb-4 font-bold">Logify</h1>
-        <p className="mt-6 flex text-gray-400">
+        <p className="mt-6 flex text-gray-500">
           ✍️ Record events, inputs, and outputs in your logfile
         </p>
         <EventLog />
