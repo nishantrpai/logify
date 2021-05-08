@@ -49,16 +49,14 @@ const EventLog = () => {
           }}
         />
         <button
-          className={`
-          ${isCopied ? "bg-green-700" : ""}
-          ${event.length == 0 ? "bg-blue-300" : "bg-blue-500"}
+          className={`${event.length == 0 ? "bg-blue-300" : "bg-blue-500"}
           w-full text-white 
           font-bold py-2 px-4 rounded text-xl mt-4`}
           onClick={(e) => {
             copyClick();
           }}
         >
-          {isCopied ? 'Copied' : 'Copy'}
+          {isCopied ? "Copied" : "Copy"}
         </button>
       </div>
     </div>
@@ -70,12 +68,31 @@ const IO = () => {
   const [dataType, setDataType] = useState("Markdown");
   const [isVisible, setVisibility] = useState(false);
   const [date, setDate] = useState(new Date());
+  const [isCopied, setCopyStatus] = useState(false);
 
   useEffect(() => {
     setInterval(() => {
       setDate(new Date());
     }, 1000);
   }, []);
+
+  const copyClick = () => {
+    copyText(
+      getDataEntry(dataType, `${timeNow(date)},${iolog}`),
+      (status) => {
+        console.log(status);
+        setCopyStatus(status);
+        if (status == true) {
+          setTimeout(
+            function () {
+              setCopyStatus(false);
+            }.bind(this),
+            5000
+          ); // wait 5 seconds, then reset to false
+        }
+      }
+    );
+  };
 
   return (
     <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
@@ -144,15 +161,13 @@ const IO = () => {
           }}
         />
         <button
-          className={`${
-            iolog.length == 0 ? "bg-blue-300" : "bg-blue-500"
-          } w-full text-white 
+          className={`${iolog.length == 0 ? "bg-blue-300" : "bg-blue-500"} w-full text-white 
             font-bold py-2 px-4 rounded text-xl mt-4`}
           onClick={(e) => {
-            copyText(`${getDataEntry(dataType, `${timeNow(date)},${iolog}`)}`);
+            copyClick()
           }}
         >
-          Copy
+          {isCopied ? "Copied" : "Copy"}
         </button>
       </div>
     </div>
