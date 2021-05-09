@@ -179,6 +179,58 @@ const IO = () => {
   );
 };
 
+const TimeStamp = () => {
+  const [event, setEvent] = useState("");
+  const [date, setDate] = useState(new Date());
+  const [isCopied, setCopyStatus] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+  }, []);
+
+  const copyClick = () => {
+    copyText(`Timestamp: ${timeNow(date)}`, (status) => {
+      setCopyStatus(status);
+      if (status == true) {
+        setTimeout(
+          function () {
+            setCopyStatus(false);
+          }.bind(this),
+          5000
+        ); // wait 5 seconds, then reset to false
+      }
+    });
+  };
+
+  return (
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
+      <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isCopied ? "shadow shadow-xl border-gray-50" : "border-gray-200"}`}>
+        <h3 className="text-2xl font-bold">Timestamp</h3>
+        <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
+        <span className="mt-1 max-w-sm text-gray-400 text-sm">
+          Timestamp:&nbsp;
+        </span>
+        <span className="mt-1 max-w-sm text-gray-400 text-sm">
+          {`${timeNow(date)}`}
+        </span>
+        <button
+          className={`bg-blue-500 w-full text-white border-none outline-none focus:outline-none
+          font-bold py-2 px-4 rounded  mt-4 transition delay-100 ease-in`}
+          onClick={(e) => {
+            copyClick();
+          }}
+        >
+          {isCopied ? "Copied" : "Copy"}
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
 export default function Home() {
   const [alert, setalert] = useState("success");
 
@@ -196,6 +248,7 @@ export default function Home() {
         </p>
         <EventLog />
         <IO />
+        <TimeStamp />
       </main>
     </div>
   );
