@@ -2,7 +2,9 @@
 
 ![logify_og_image](https://user-images.githubusercontent.com/7431166/117572016-9f860e80-b0ee-11eb-9fbe-6f1ba4601de1.png)
 
-Every now and then I'm running multiple experiments. It is difficult keep track of what I did and when I did. 
+Every now and then, I'm running multiple experiments. 
+
+It is difficult keep track of what I did and when I did. 
 
 This [website](https://logify.vercel.app) is for event logs for e.g.,
 
