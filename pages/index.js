@@ -238,6 +238,23 @@ export default function Home() {
     <div className="flex bg-white flex-col items-center justify-start min-h-screen py-2">
       <Head>
         <title>Logify - Want to timestamp key events?</title>
+        <meta name="title" content="Logify — Preview, Edit and Generate Event Logs" />
+        <meta name="description" content="Use Logify for keeping track of context across projects and timestamping events." />
+
+        {/* Open graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://logify.vercel.app/" />
+        <meta property="og:title" content="Logify — Preview, Edit and Generate Event Logs" />
+        <meta property="og:description" content="Use Logify for keeping track of context across projects and timestamping events." />
+        <meta property="og:image" content="https://logify.vercel.app/logify_og_image.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://logify.vercel.app/" />
+        <meta property="twitter:title" content="Logify — Preview, Edit and Generate Event Logs" />
+        <meta property="twitter:description" content="Use Logify for keeping track of context across projects and timestamping events." />
+        <meta property="og:image" content="https://logify.vercel.app/logify_og_image.png" />
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
