@@ -1,6 +1,6 @@
 # Experiment Tools
 
-(![event_log](https://user-images.githubusercontent.com/7431166/117571985-88472100-b0ee-11eb-9ada-db93e548bc1a.png))
+![logify_og_image](https://user-images.githubusercontent.com/7431166/117572016-9f860e80-b0ee-11eb-9fbe-6f1ba4601de1.png)
 
 Every now and then I'm running multiple experiments. It is difficult keep track of what I did and when I did. 
 
