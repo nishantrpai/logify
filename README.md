@@ -12,6 +12,8 @@ This [website](https://logify.vercel.app) is for event logs for e.g.,
 07 May 2021 16:03:10: Created this repo for event logs
 ```
 
+[Logs for this project](https://github.com/nishantrpai/logify/blob/master/Log.md)
+
 ## How to use
 
 Go to the website -> Write the message -> Press copy -> Paste the event log in your experiment/logfile
