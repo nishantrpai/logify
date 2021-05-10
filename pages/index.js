@@ -237,7 +237,7 @@ export default function Home() {
   return (
     <div className="flex bg-white flex-col items-center justify-start min-h-screen py-2">
       <Head>
-        <title>Logify - Want to timestamp key events?</title>
+        <title>Logify — Preview, Edit and Generate Event Logs</title>
         <meta name="title" content="Logify — Preview, Edit and Generate Event Logs" />
         <meta name="description" content="Use Logify for keeping track of context across projects and timestamping events." />
 
