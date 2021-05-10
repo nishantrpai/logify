@@ -30,7 +30,7 @@ const EventLog = () => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6 md:max-w-md">
       <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isFocused ? "shadow shadow-xl border-gray-50" : "border-gray-200"}`}>
         <h3 className="text-2xl font-bold">Event Log</h3>
         <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
@@ -99,7 +99,7 @@ const IO = () => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6 md:max-w-md">
       <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isFocused ? "shadow shadow-xl border-gray-100" : "border-gray-200"}`}>
         <h3 className="text-2xl font-bold">I/O Log</h3>
         <p className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</p>
@@ -206,7 +206,7 @@ const TimeStamp = () => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6">
+    <div className="flex flex-col flex-wrap max-w-lg items-center justify-around w-full mt-6 md:max-w-md">
       <div className={`p-6 border bg-white mt-6 text-left w-full rounded-xl transition delay-100 ease-in ${isCopied ? "shadow shadow-xl border-gray-50" : "border-gray-200"}`}>
         <h3 className="text-2xl font-bold">Timestamp</h3>
         <span className="mt-2 mb-2 text-gray-500 flex text-sm">Preview:</span>
