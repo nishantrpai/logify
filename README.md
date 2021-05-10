@@ -17,3 +17,5 @@ This [website](https://logify.vercel.app) is for event logs for e.g.,
 ## How to use
 
 Go to the website -> Write the message -> Press copy -> Paste the event log in your experiment/logfile
+
+[Why did I build this?](https://twitter.com/PaiNishant/status/1391387266166185984)
