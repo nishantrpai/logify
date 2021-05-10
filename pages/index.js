@@ -284,6 +284,30 @@ export default function Home() {
         <IO />
         <TimeStamp />
       </main>
+
+      <footer className="flex flex-col items-center w-full justify-start flex-1 px-10 py-10 text-center border-t">
+
+        <a
+          className="flex justify-center text-blue-500 mb-8"
+          href="https://twitter.com/PaiNishant/status/1391387266166185984"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Why did I build this ?
+        </a>
+
+
+        <a
+          className="flex justify-center text-blue-500"
+          href="https://twitter.com/painishant"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @PaiNishant
+        </a>
+
+      </footer>
+
     </div>
   );
 }
