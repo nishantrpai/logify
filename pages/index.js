@@ -289,7 +289,7 @@ export default function Home() {
 
         <a
           className="flex justify-center text-blue-500 mb-8"
-          href="https://twitter.com/PaiNishant/status/1391387266166185984"
+          href="https://nishantpai.substack.com/p/logify"
           target="_blank"
           rel="noopener noreferrer"
         >
