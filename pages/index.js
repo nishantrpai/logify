@@ -235,6 +235,14 @@ const TimeStamp = () => {
 
 export default function Home() {
  const [alert, setalert] = useState("success");
+ const [darkMode, setDarkMode] = useState(false);
+
+ useEffect(() => {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+   setDarkMode(true);
+  }
+ }, [])
+
 
  return (
   <div className="flex bg-white dark:bg-gray-800 flex-col items-center justify-start min-h-screen py-2">
@@ -271,10 +279,19 @@ export default function Home() {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
+    {darkMode ?
+     <link rel="manifest" href="/manifest-dark.json" /> :
+     <link rel="manifest" href="/manifest.json" />
+    }
+    {darkMode ?
+     <meta name="msapplication-TileColor" content="#111827" /> :
+     <meta name="msapplication-TileColor" content="#ffffff" />
+    }
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
+    {darkMode ?
+     <meta name="theme-color" content="#111827" /> :
+     <meta name="theme-color" content="#ffffff" />
+    }
    </Head>
 
    <main className="flex flex-col items-center max-w-2xl justify-start flex-1 px-10 py-20 text-center">
