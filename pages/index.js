@@ -42,7 +42,7 @@ const EventLog = () => {
    </span>
    <input
     type="text"
-    class="px-2 py-3 leading-5 border dark:bg-gray-700 dark:text-gray-50 dark:border-none w-full mt-4 rounded-md focus:outline-none focus:ring-2 focus:border-blue-500"
+    className="px-2 py-3 leading-5 border dark:bg-gray-700 dark:text-gray-50 dark:border-none w-full mt-4 rounded-md focus:outline-none focus:ring-2 focus:border-blue-500"
     placeholder="Enter Event"
     onFocus={() => { setIsFocused(true) }}
     onBlur={() => { setIsFocused(false) }}
@@ -159,7 +159,7 @@ const IO = () => {
 
     <input
      type="text"
-     class="px-2 py-3 leading-5 border dark:bg-gray-700 dark:text-gray-50 dark:border-none w-full mt-4 rounded-md focus:outline-none focus:ring-2 focus:border-blue-500"
+     className="px-2 py-3 leading-5 border dark:bg-gray-700 dark:text-gray-50 dark:border-none w-full mt-4 rounded-md focus:outline-none focus:ring-2 focus:border-blue-500"
      placeholder="Enter ',' separated input, output values"
      onFocus={() => { setIsFocused(true) }}
      onBlur={() => { setIsFocused(false) }}

@@ -19,10 +19,11 @@ module.exports = {
 
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
-    }
+    },
   },
   variants: {
     extend: {},
+    scrollbar: ['rounded']
   },
   plugins: [
     require('tailwind-scrollbar'),
