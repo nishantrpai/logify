@@ -182,10 +182,8 @@ const IO = () => {
 };
 
 const TimeStamp = () => {
- const [event, setEvent] = useState("");
  const [date, setDate] = useState(new Date());
  const [isCopied, setCopyStatus] = useState(false);
- const [isFocused, setIsFocused] = useState(false);
 
  useEffect(() => {
   setInterval(() => {
@@ -234,7 +232,6 @@ const TimeStamp = () => {
 
 
 export default function Home() {
- const [alert, setalert] = useState("success");
  const [darkMode, setDarkMode] = useState(false);
 
  useEffect(() => {
